@@ -11,7 +11,8 @@ class Login(QtWidgets.QMainWindow):
         self.setFixedSize(447,458)
         uic.loadUi("ui/login.ui",self)
 
-
+    def login(self):
+        pass
 
 
 
