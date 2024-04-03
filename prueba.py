@@ -1,3 +1,3 @@
 import usuarios
 conexionUsuarios = usuarios.Usuarios()
-conexionUsuarios.obtenerUsuarios()
+print("Logueado?",conexionUsuarios.login("rodrichoco","rodri123"))
