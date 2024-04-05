@@ -1,12 +1,13 @@
 import data.coneccionBBDD as coneccionBBDD 
 
 class Usuarios(coneccionBBDD.ConeccionBBDD):
+    
     def obtenerUsuarios(self):
         datos = self.run_query("SELECT * FROM `usuario`")
-        print(datos)
+        return datos
     def obtenerUsuario(self,id):
         datos = self.run_query(f"SELECT * from usuario  WHERE usuario.idUsuario = {str(id)}")
-        print(datos)
+        return datos
 
     def obtenerUsuarioContrasenia(self,usuario):
         datos = self.run_query(f"SELECT usuario.idUsuario,usuario.contrasenia from usuario  WHERE usuario.usuario = '{str(usuario)}'")
@@ -30,3 +31,6 @@ class Usuarios(coneccionBBDD.ConeccionBBDD):
                 respuesta.append(['Contraseña incorrecta'])
 
         return respuesta
+    def obtenerTipoUsuario(self,idTipoUsuario):
+        datos = self.run_query(f"SELECT tipousuario.descripcionUsuario from tipousuario where tipousuario.idTipoDeUsuario = {str(idTipoUsuario)}")
+        return datos

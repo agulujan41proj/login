@@ -6,6 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import * 
 import sys
 from data.usuarios import Usuarios
+from pantallaPrincipal import PantallaPrincipal
 class Login(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super(Login,self).__init__(parent)
@@ -13,6 +14,7 @@ class Login(QtWidgets.QMainWindow):
         uic.loadUi("ui/login.ui",self)
         self.pushButtonEntrar.clicked.connect(self.login)
         self.usuarios = Usuarios()
+        self.pantallaPrincipal = None
     def login(self):
         usuario = self.lineEditUsuario.text()
         contrasenia = self.lineEditContrasenia.text()
@@ -21,7 +23,10 @@ class Login(QtWidgets.QMainWindow):
         else:
             respuesta = self.usuarios.login(usuario,contrasenia)
             if respuesta[0] == True:
-                pass
+                self.pantallaPrincipal = PantallaPrincipal(respuesta[1][0])
+                self.pantallaPrincipal.show()
+                self.close()
+                
             else:
                 self.labelMensaje.setText(respuesta[1][0])
         
