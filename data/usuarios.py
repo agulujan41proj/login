@@ -1,4 +1,4 @@
-import coneccionBBDD 
+import data.coneccionBBDD as coneccionBBDD 
 
 class Usuarios(coneccionBBDD.ConeccionBBDD):
     def obtenerUsuarios(self):
@@ -14,11 +14,19 @@ class Usuarios(coneccionBBDD.ConeccionBBDD):
     
     def login(self,usuario,contrasenia):
         datosUsuario = self.obtenerUsuarioContrasenia(usuario)
+        respuesta =[]
         if len(datosUsuario) == 0:
-            return False
+            respuesta.append(False)
+            respuesta.append(["Usuario no encontrado"])
+            
         else:
             contraseniaReal = datosUsuario [0][1]
             if contraseniaReal == contrasenia:
-                return True
+                respuesta.append(True)
+                respuesta.append(datosUsuario[0])
+                
             else:
-                return False
+                respuesta.append(False)
+                respuesta.append(['Contraseña incorrecta'])
+
+        return respuesta
