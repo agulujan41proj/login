@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Adidas Customer</string>
+   <string>Centro Medico Salta</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -24,6 +24,7 @@
       <property name="styleSheet">
        <string notr="true">QFrame{
 	background:white;
+	font-size:13px;
 }</string>
       </property>
       <property name="frameShape">
@@ -32,39 +33,65 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
         <widget class="QLabel" name="labelUsuario">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>Usuario</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
         <widget class="QLineEdit" name="lineEditUsuario">
          <property name="maxLength">
           <number>100</number>
          </property>
+         <property name="placeholderText">
+          <string>Usuario</string>
+         </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item>
         <widget class="QLabel" name="labelContrasenia">
          <property name="text">
           <string>Contraseña</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLineEdit" name="lineEditContresenia">
+       <item>
+        <widget class="QLineEdit" name="lineEditContrasenia">
          <property name="maxLength">
           <number>50</number>
          </property>
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
+         <property name="placeholderText">
+          <string>*********</string>
+         </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item>
+        <widget class="QLabel" name="labelMensaje">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color:red;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="pushButtonEntrar">
          <property name="text">
           <string>Entrar</string>

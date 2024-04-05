@@ -5,14 +5,26 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import * 
 import sys
+from data.usuarios import Usuarios
 class Login(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super(Login,self).__init__(parent)
         self.setFixedSize(447,458)
         uic.loadUi("ui/login.ui",self)
-
+        self.pushButtonEntrar.clicked.connect(self.login)
+        self.usuarios = Usuarios()
     def login(self):
-        pass
+        usuario = self.lineEditUsuario.text()
+        contrasenia = self.lineEditContrasenia.text()
+        if usuario == "" or contrasenia == "":
+            self.labelMensaje.setText("Rellene todos los campos")
+        else:
+            respuesta = self.usuarios.login(usuario,contrasenia)
+            if respuesta[0] == True:
+                pass
+            else:
+                self.labelMensaje.setText(respuesta[1][0])
+        
 
 
 
