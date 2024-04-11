@@ -182,6 +182,32 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <widget class="QPushButton" name="btnMenu">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>30</width>
+            <height>30</height>
+           </rect>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>assets/icons/menu.svg</normaloff>assets/icons/menu.svg</iconset>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>

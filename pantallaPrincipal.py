@@ -19,7 +19,18 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
         self.labelUsuario.setText("Usuario: " + self.datosUsuario[0][2]+ ", "+self.datosUsuario[0][3] )
     
         self.labelTipoUsuario.setText(self.usuarios.obtenerTipoUsuario(self.datosUsuario[0][1])[0][0].upper())
-
+        self.btnMenu.clicked.connect(self.deslizarMenu)
+    def deslizarMenu(self):
+        anchoMenu = self.frameMenu.width()
+        nuevoAncho = 0
+        if anchoMenu == 0:
+            nuevoAncho = 300
+        self.animation = QtCore.QPropertyAnimation(self.frameMenu,b"maximumWidth")
+        self.animation.setDuration(300)
+        self.animation.setStartValue(anchoMenu)
+        self.animation.setEndValue(nuevoAncho)
+        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.start()
 app = QApplication(sys.argv)
 object = PantallaPrincipal(1)
 object.show()
