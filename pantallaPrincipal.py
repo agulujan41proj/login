@@ -20,3 +20,7 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
     
         self.labelTipoUsuario.setText(self.usuarios.obtenerTipoUsuario(self.datosUsuario[0][1])[0][0].upper())
 
+app = QApplication(sys.argv)
+object = PantallaPrincipal(1)
+object.show()
+app.exec_()

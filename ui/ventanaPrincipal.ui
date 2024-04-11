@@ -190,6 +190,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="assets/icons/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
