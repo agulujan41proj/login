@@ -1,5 +1,5 @@
 import data.coneccionBBDD as coneccionBBDD 
-
+import datetime
 class Usuarios(coneccionBBDD.ConeccionBBDD):
     
     def obtenerUsuarios(self):
@@ -34,3 +34,7 @@ class Usuarios(coneccionBBDD.ConeccionBBDD):
     def obtenerTipoUsuario(self,idTipoUsuario):
         datos = self.run_query(f"SELECT tipousuario.descripcionUsuario from tipousuario where tipousuario.idTipoDeUsuario = {str(idTipoUsuario)}")
         return datos
+    
+    def actualizarUltimoAcceso(self,idUsuario):
+        hora_actual = datetime.datetime.now()
+        self.run_query(f"UPDATE `usuario` SET `ultimoAcceso` = '{str(hora_actual)}' WHERE `usuario`.`idUsuario` = {str(idUsuario)};")
