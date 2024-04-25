@@ -11,6 +11,7 @@ class TableEmpleados():
        self.tabla = self.interfaz.tableEmpleados
        self.cargarTabla(self.interfaz.empleadosDatos)
     def cargarTabla (self,tuplaEmpleados):
+        self.tabla.clear()
         self.tabla.setHorizontalHeaderLabels(["Id","Apellido","Nombre","Rol","DNI","CUIT","Fecha de nacimiento","Direccion","Email", "Ultimo Acceso","Habilitado"])
         filasI = 0
         for fila in tuplaEmpleados:

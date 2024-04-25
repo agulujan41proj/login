@@ -23,18 +23,23 @@ class Login(QtWidgets.QMainWindow):
         else:
             respuesta = self.usuarios.login(usuario,contrasenia)
             if respuesta[0] == True:
-                self.pantallaPrincipal = PantallaPrincipal(respuesta[1][0])
+                self.pantallaPrincipal = PantallaPrincipal(respuesta[1][0],self)
                 self.pantallaPrincipal.show()
                 self.close()
                 
             else:
                 self.labelMensaje.setText(respuesta[1][0])
         
+    def reiniciar(self):
+        self.lineEditUsuario.setText("")
+        self.lineEditContrasenia.setText("")
+        self.labelMensaje.setText("")
+        self.show()
 
 
 
-
-app = QApplication(sys.argv)
-object = Login()
-object.show()
-app.exec_()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    object = Login()
+    object.show()
+    app.exec_()

@@ -9,10 +9,10 @@ from data.usuarios import Usuarios
 from data.empleados import Empleados
 from tableEmpleados import TableEmpleados
 class PantallaPrincipal(QtWidgets.QMainWindow):
-    def __init__(self, idUsuario ,parent=None):
+    def __init__(self, idUsuario,login ,parent=None):
         super(PantallaPrincipal,self).__init__(parent)
         self.idUsuario = idUsuario
-        
+        self.login = login
         self.usuarios = Usuarios()
         self.empleadosConeccion = Empleados()
         
@@ -20,7 +20,7 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
         self.datosUsuario = self.usuarios.obtenerUsuario(self.idUsuario)
         uic.loadUi("ui/ventanaPrincipal.ui",self)
         #llamar a los elementos de ui
-        self.btnCerrarSesion.clicked.connect(self.cerrar)
+        self.btnCerrarSesion.clicked.connect(self.cerrarSesion)
         self.labelUsuario.setText("Usuario: " + self.datosUsuario[0][2]+ ", "+self.datosUsuario[0][3] )
     
         self.labelTipoUsuario.setText(self.usuarios.obtenerTipoUsuario(self.datosUsuario[0][1])[0][0].upper())
@@ -87,5 +87,6 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
         for pantalla in self.pantallas:
             pantalla.hide()
         pantallaAMostrar.show()
-    def cerrar(self):
+    def cerrarSesion(self):
         self.close()
+        self.login.reiniciar()
