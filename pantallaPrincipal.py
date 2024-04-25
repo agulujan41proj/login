@@ -8,6 +8,7 @@ import sys
 from data.usuarios import Usuarios
 from data.empleados import Empleados
 from tableEmpleados import TableEmpleados
+
 class PantallaPrincipal(QtWidgets.QMainWindow):
     def __init__(self, idUsuario,login ,parent=None):
         super(PantallaPrincipal,self).__init__(parent)
@@ -90,3 +91,9 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
     def cerrarSesion(self):
         self.close()
         self.login.reiniciar()
+
+app = QApplication(sys.argv)
+
+object = PantallaPrincipal(1,None)
+object.show()
+app.exec_()

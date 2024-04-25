@@ -4,12 +4,30 @@ from PyQt5.QtCore import Qt
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import * 
-
+from formularioEmpleado import FormularioEmpleados
+from data.empleados import Empleados
 class TableEmpleados():
     def __init__(self,interfazPrincipal):
        self.interfaz = interfazPrincipal
        self.tabla = self.interfaz.tableEmpleados
-       self.cargarTabla(self.interfaz.empleadosDatos)
+       self.empleadosConeccion = Empleados()
+
+       self.cargarTabla(self.empleadosConeccion.obtenerEmpleados())
+       self.tabla.doubleClicked.connect(self.cargarFormulario)
+       self.ventanaFormulario = None
+
+    
+    def cargarFormulario(self,index):
+       
+        empleados = self.empleadosConeccion.obtenerEmpleados()
+       
+        if self.ventanaFormulario != None:
+            self.ventanaFormulario.close()
+        self.ventanaFormulario = FormularioEmpleados(empleados[index.row()][0],empleados[index.row()][1],empleados[index.row()][2],empleados[index.row()][3],self)
+        self.ventanaFormulario.show()
+
+    def actualizar(self):
+         self.cargarTabla(self.empleadosConeccion.obtenerEmpleados())
     def cargarTabla (self,tuplaEmpleados):
         self.tabla.clear()
         self.tabla.setHorizontalHeaderLabels(["Id","Apellido","Nombre","Rol","DNI","CUIT","Fecha de nacimiento","Direccion","Email", "Ultimo Acceso","Habilitado"])
