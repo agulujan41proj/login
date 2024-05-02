@@ -8,7 +8,7 @@ import sys
 from data.usuarios import Usuarios
 from data.empleados import Empleados
 from tableEmpleados import TableEmpleados
-
+from turnos import Turnos
 class PantallaPrincipal(QtWidgets.QMainWindow):
     def __init__(self, idUsuario,login ,parent=None):
         super(PantallaPrincipal,self).__init__(parent)
@@ -51,7 +51,8 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
             self.btnEmpleados.hide()
             self.btnCalendario.hide()
 
-        
+        self.tablaEmpleados = None
+        self.turnos = None
 
     def deslizarMenu(self):
         anchoMenu = self.frameMenu.width()
@@ -75,11 +76,13 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
         self.labelTituloPantalla.setText("Empleados")
         self.ocultarPantallasMenos(self.frameEmpleados)
         self.empleadosDatos = self.empleadosConeccion.obtenerEmpleados()
-        self.tablaEmpleados = TableEmpleados(self)
+        if self.tablaEmpleados == None:
+            self.tablaEmpleados = TableEmpleados(self)
   
     def turnos(self):
         self.labelTituloPantalla.setText("Turnos")
         self.ocultarPantallasMenos(self.frameTurnos)
+        self.turnos = Turnos(self)
 
     def calendario(self):
         self.labelTituloPantalla.setText("Calendario")

@@ -325,12 +325,15 @@
                </property>
                <layout class="QGridLayout" name="gridLayout">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label">
+                 <widget class="QLabel" name="labelTituloTurnos">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
                     <height>100</height>
                    </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font:bold;</string>
                   </property>
                   <property name="text">
                    <string>Ingresar un turno</string>
@@ -338,34 +341,34 @@
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="label_4">
+                 <widget class="QLabel" name="labelPaciente">
                   <property name="text">
                    <string>Paciente</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QComboBox" name="comboBox"/>
+                 <widget class="QComboBox" name="comboBoxPaciente"/>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="label_2">
+                 <widget class="QLabel" name="labelFechaTurnos">
                   <property name="text">
                    <string>Fecha Turno</string>
                   </property>
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QDateEdit" name="dateEdit"/>
+                 <widget class="QDateEdit" name="dateEditTurno"/>
                 </item>
                 <item row="3" column="0">
-                 <widget class="QLabel" name="label_3">
+                 <widget class="QLabel" name="labelHora">
                   <property name="text">
                    <string>Hora</string>
                   </property>
                  </widget>
                 </item>
                 <item row="3" column="1">
-                 <widget class="QTimeEdit" name="timeEdit"/>
+                 <widget class="QTimeEdit" name="timeEditFecha"/>
                 </item>
                 <item row="4" column="0">
                  <widget class="QLabel" name="label_5">
@@ -375,17 +378,17 @@
                  </widget>
                 </item>
                 <item row="4" column="1">
-                 <widget class="QComboBox" name="comboBox_2"/>
+                 <widget class="QComboBox" name="comboBoxProfesional"/>
                 </item>
                 <item row="5" column="0">
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="btnCancelarTurnos">
                   <property name="text">
                    <string>Cancelar</string>
                   </property>
                  </widget>
                 </item>
                 <item row="5" column="1">
-                 <widget class="QPushButton" name="pushButton_2">
+                 <widget class="QPushButton" name="btnGuardarCambiosTurnos">
                   <property name="text">
                    <string>Guardar cambios</string>
                   </property>
