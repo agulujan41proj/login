@@ -7,6 +7,7 @@ class ConeccionBBDD:
 
 
         def run_query(self,query=''):
+                self.update()
                 self.cursor.execute(query)
                 if query.upper().startswith('SELECT'):
                         data = self.cursor.fetchall()
@@ -14,8 +15,13 @@ class ConeccionBBDD:
                 else:
                         self.conn.commit()
                         data=None
+                
                 return data
 
         def close(self):
                 self.cursor.close()
                 self.conn.close()
+        def update(self):
+                self.close()
+                self.conn = MySQLdb.connect(*self.datos)
+                self.cursor = self.conn.cursor()
