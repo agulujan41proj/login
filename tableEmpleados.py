@@ -30,6 +30,8 @@ class TableEmpleados():
          self.cargarTabla(self.empleadosConeccion.obtenerEmpleados())
     def cargarTabla (self,tuplaEmpleados):
         self.tabla.clear()
+        if len(tuplaEmpleados) >0:
+            self.tabla.setRowCount(len(tuplaEmpleados[0]))
         self.tabla.setHorizontalHeaderLabels(["Id","Apellido","Nombre","Rol","DNI","CUIT","Fecha de nacimiento","Direccion","Email", "Ultimo Acceso","Habilitado"])
         filasI = 0
         for fila in tuplaEmpleados:

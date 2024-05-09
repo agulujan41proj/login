@@ -82,7 +82,8 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
     def turnos(self):
         self.labelTituloPantalla.setText("Turnos")
         self.ocultarPantallasMenos(self.frameTurnos)
-        self.turnos = Turnos(self)
+        if self.turnos == None:
+            self.turnos = Turnos(self)
 
     def calendario(self):
         self.labelTituloPantalla.setText("Calendario")
@@ -94,7 +95,6 @@ class PantallaPrincipal(QtWidgets.QMainWindow):
     def cerrarSesion(self):
         self.close()
         self.login.reiniciar()
-
 app = QApplication(sys.argv)
 
 object = PantallaPrincipal(1,None)
