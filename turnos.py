@@ -55,4 +55,8 @@ class Turnos():
         hora =  f"{qhora.hour()}:{qhora.minute()}:00"
 
         self.coneccionTurnos.insertarTurno(idPaciente,idProfesional,fecha,hora)
+        self.interfaz.calendarioSesion.actualizar()
+        
+        self.cancelar()
         print("Exitoso")
+        
